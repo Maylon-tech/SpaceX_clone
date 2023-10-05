@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Familjen+Grotesk:wght@400;500;600;700&family=Fredoka:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+@import 'burgerMenu';
+
 
 *, *::before, *::after {
     margin: 0;
@@ -223,8 +225,55 @@ footer ul li a:hover {
     color: #aaa;
 }
 
+/*  MOBILE MENU */
 
+.mobile-main-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 100%;
+    background-color: #111;
+    z-index: 4;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform .5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/*  Bring menu from Right */
+.show-menu {
+    transform: translateX(0);
+}
+
+.mobile-main-menu ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    width: 100%;
+    padding: 50px;
+}
+.mobile-main-menu ul li {
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-bottom: 1px #555 dotted;
+    width: 100%;
+    text-align: right;
+    padding-bottom: 8px;
+}
+.mobile-main-menu ul li a {
+    color: #fff;
+    transition: color .6s;
+}
+.mobile-main-menu ul li a:hover {
+    color: #aaa;
+}
+
+/*  ANIMATIONS  */
 
 @keyframes fadeUp {
     0% {
@@ -253,11 +302,42 @@ footer ul li a:hover {
     }
 }
 
+
+/*  MEDIA QUERIES - RESPONSIVE LAYOUT  */
+
 @media(max-width: 960px) {
     /* Hide desktop menu  */
-
+    .desktop-main-menu{
+        display: none;
+    }
 }
 
 @media(max-width: 600px) {
-    
+    .section-inner {
+        bottom: 75px;
+        left: 20px;
+    }
+
+    .section-inner h2 {
+        font-size: 40px;
+    }
+
+    footer ul li:first-child {
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    footer ul li {
+        margin-right: 15px;
+    }
+
+    .logo {
+        width: 15px;
+        margin: auto;
+    }
+
+    .mobile-only {
+        display: block;
+    }
 }
